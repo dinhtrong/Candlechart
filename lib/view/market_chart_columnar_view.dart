@@ -14,7 +14,7 @@ class MarketChartColumnarView extends StatelessWidget {
         stream: mkBloc.outCurrentMarketChartList,
         builder:
             (BuildContext context, AsyncSnapshot<List<Market>> snapshot) {
-          List<Market> tmpList = snapshot.data ?? [Market(0, 0, 0, 0, 0, 0)];
+          List<Market> tmpList = snapshot.data ?? [Market(0, 0, 0, 0, 0, '')];
           Color increaseColor;
           Color decreaseColor;
           if (type == 0) {

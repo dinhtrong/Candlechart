@@ -6,5 +6,5 @@ class MarketChartData {
   double low;
   double close;
   double vol;
-  int date;
+  String date;
 }

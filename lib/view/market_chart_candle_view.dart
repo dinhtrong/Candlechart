@@ -13,7 +13,7 @@ class MarketChartCandleView extends StatelessWidget {
         stream: mkBloc.outCurrentMarketChartList,
         builder:
             (BuildContext context, AsyncSnapshot<List<Market>> snapshot) {
-          List<Market> tmpList = snapshot.data ?? [Market(0, 0, 0, 0, 0, 0)];          
+          List<Market> tmpList = snapshot.data ?? [Market(0, 0, 0, 0, 0, '')];
           return CustomPaint(
               size: Size.infinite,
               painter: _CandleViewPainter(

@@ -7,7 +7,7 @@ class Market{
   double low;
   double close;
   double volumeto;
-  int date;
+  String date;
 
   double priceMa1;
   double priceMa2;

@@ -15,7 +15,7 @@ class MarketChartSeparateView extends StatelessWidget {
     return StreamBuilder(
         stream: mkBloc.outCurrentMarketChartList,
         builder: (BuildContext context, AsyncSnapshot<List<Market>> snapshot) {
-          final List<Market> tmpList = snapshot.data ?? <Market>[Market(0, 0, 0, 0, 0, 0)];
+          final List<Market> tmpList = snapshot.data ?? <Market>[Market(0, 0, 0, 0, 0, '')];
           return CustomPaint(
               size: Size.infinite,
               painter: _SeparateViewPainter(
@@ -113,22 +113,19 @@ class _SeparateViewPainter extends CustomPainter {
     drawText(canvas, Offset(origin, height - 12 + 20), min.toStringAsPrecision(7));
 
     for (var i = 0; i < 5; i++) {
-      int timestamp;
+      String date;
       Offset dateOrigin;
       if (i == 0) {
-        timestamp = data[0].date;
+        date = data[0].date;
         dateOrigin = Offset(0, height+20);
       } else if (i == 4) {
-        timestamp = data.last.date;
-        dateOrigin = Offset(width - 30, height+20);
+        date = data.last.date;
+        dateOrigin = Offset(width - 52, height+20);
       } else {
-        timestamp = data[i*count].date;
-        dateOrigin = Offset((i * count - 0.5) * rectWidth - 15, height+20);
+        date = data[i*count].date;
+        dateOrigin = Offset((i * count - 0.5) * rectWidth - 25, height+20);
       }
-      var date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-      var dateFormatter = DateFormat('HH:mm');
-      String dateString = dateFormatter.format(date);
-      drawText(canvas, dateOrigin, dateString);
+      drawText(canvas, dateOrigin, date);
     }
   }
 
