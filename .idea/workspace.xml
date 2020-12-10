@@ -3,21 +3,23 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9318e57e-d28a-48d3-9aab-05349dd932e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9318e57e-d28a-48d3-9aab-05349dd932e8" name="Default Changelist" comment="change date from int to string">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/market_chart_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/market_chart_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/market_chart_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/market_chart_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/market_chart_area_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/market_chart_area_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/market_chart_candle_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/market_chart_candle_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/market_chart_columnar_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/market_chart_columnar_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/market_chart_separate_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/market_chart_separate_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/market_chart_solide_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/market_chart_solide_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +62,30 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change date from int to string" />
+    <option name="LAST_COMMIT_MESSAGE" value="change date from int to string" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607068677956">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1607068677956" />
+    <state x="198" y="0" key="CommitChangelistDialog2" timestamp="1607337753393">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="198" y="0" key="CommitChangelistDialog2/0.0.1280.800/1280.-280.1920.1080@0.0.1280.800" timestamp="1607337753393" />
     <state x="1741" y="-101" key="SettingsEditor" timestamp="1607063603065">
       <screen x="1280" y="-280" width="1920" height="1080" />
     </state>

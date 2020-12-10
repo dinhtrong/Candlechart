@@ -58,7 +58,7 @@ class MarketChartPage extends StatelessWidget {
                 stream: bloc.outMarketChartList,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Market>> snapshot) {
-                  List<Market> data = snapshot.data;
+                  List<Market> data = snapshot.data ?? <Market>[];
                   if (data != null) {
                     double width = MediaQuery.of(context).size.width;
                     count = (width ~/ bloc.rectWidth).toInt();
