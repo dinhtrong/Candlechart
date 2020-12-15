@@ -68,7 +68,7 @@ class MarketChartBloc extends BlocBase {
   void setScreenWith(double width) {
     screenWidth = width;
     final double count = screenWidth / rectWidth;
-    final int num =  v.toInt();
+    final int num =  count.toInt();
     if (stringList.length - num > 0) {
       currentIndex = stringList.length - num;
       getSubMarketChartList(stringList.length - num, stringList.length);
