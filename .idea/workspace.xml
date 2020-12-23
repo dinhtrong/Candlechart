@@ -18,9 +18,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9318e57e-d28a-48d3-9aab-05349dd932e8" name="Default Changelist" comment="change date from int to string">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9318e57e-d28a-48d3-9aab-05349dd932e8" name="Default Changelist" comment="change date from int to string" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +70,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change date from int to string" />
@@ -86,6 +85,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="198" y="0" key="CommitChangelistDialog2/0.0.1280.800/1280.-280.1920.1080@0.0.1280.800" timestamp="1607337753393" />
+    <state x="1949" y="-19" key="RollbackChangesDialog" timestamp="1608535286317">
+      <screen x="1280" y="-280" width="1920" height="1080" />
+    </state>
+    <state x="1949" y="-19" key="RollbackChangesDialog/0.0.1280.800/1280.-280.1920.1080@1280.-280.1920.1080" timestamp="1608535286317" />
     <state x="1741" y="-101" key="SettingsEditor" timestamp="1607063603065">
       <screen x="1280" y="-280" width="1920" height="1080" />
     </state>

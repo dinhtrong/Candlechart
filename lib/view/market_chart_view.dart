@@ -4,10 +4,22 @@ import 'package:candleline/bloc/market_chart_bloc.dart';
 import 'package:candleline/common/bloc_provider.dart';
 import 'package:candleline/model/market_chart_model.dart';
 import 'package:candleline/view/market_chart_single_view.dart';
-
-class MarketChartPage extends StatelessWidget {
+class MarketChartPage extends StatefulWidget {
   const MarketChartPage({Key key, @required this.bloc}) : super(key: key);
   final MarketChartBloc bloc;
+  @override
+  _MarketChartPageState createState() => _MarketChartPageState(bloc);
+}
+
+class _MarketChartPageState extends State<MarketChartPage> {
+  _MarketChartPageState(this.bloc);
+  MarketChartBloc bloc;
+  int currentIndex = 0;
+  @override
+  void dispose() {
+    currentIndex = 0;
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     Offset lastPoint;
@@ -16,10 +28,10 @@ class MarketChartPage extends StatelessWidget {
     int count;
     double currentRectWidth;
     bool isScale = false;
-    ScrollController _controller = ScrollController(initialScrollOffset: bloc.rectWidth * bloc.stringList.length-bloc.screenWidth);
+    final ScrollController _controller = ScrollController(initialScrollOffset: bloc.rectWidth * bloc.stringList.length-bloc.screenWidth);
     _controller.addListener(() {
       print(_controller.offset);
-      int currentIndex = (_controller.offset ~/ bloc.rectWidth).toInt();
+      currentIndex = (_controller.offset ~/ bloc.rectWidth).toInt();
       if (currentIndex < 0) {
         return;
       } else if (currentIndex > bloc.stringList.length - count) {
@@ -28,43 +40,42 @@ class MarketChartPage extends StatelessWidget {
       bloc.currentIndex = currentIndex;
       bloc.getSubMarketChartList(currentIndex, currentIndex + count);
     });
-
     return BlocProvider<MarketChartBloc>(
-        //key: PageStorageKey('market'),
+      //key: PageStorageKey('market'),
         bloc: bloc,
         child: GestureDetector(
-            onScaleStart: (details) {
+            onScaleStart: (ScaleStartDetails details) {
               currentRectWidth = bloc.rectWidth;
               isScale = true;
             },
-            onScaleUpdate: (details) {
-              double scale = details.scale;
+            onScaleUpdate: (ScaleUpdateDetails details) {
+              final double scale = details.scale;
               if (scale == 1.0) {
                 return;
               }
               print(details.scale);
               lastScale = details.scale;
-              double rectWidth = scale * currentRectWidth;
+              final double rectWidth = scale * currentRectWidth;
               count =
                   (MediaQuery.of(context).size.width ~/ bloc.rectWidth).toInt();
               bloc.setRectWidth(rectWidth);
               bloc.getSubMarketChartList(
                   bloc.currentIndex, bloc.currentIndex + count);
             },
-            onScaleEnd: (details) {
+            onScaleEnd: (ScaleEndDetails details) {
               isScale = false;
             },
-            child: StreamBuilder(
+            child: StreamBuilder<List<Market>>(
                 stream: bloc.outMarketChartList,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Market>> snapshot) {
-                  List<Market> data = snapshot.data ?? <Market>[];
-                  if (data != null) {
-                    double width = MediaQuery.of(context).size.width;
-                    count = (width ~/ bloc.rectWidth).toInt();
-                    bloc.setScreenWith(width);
-                    // _controller.jumpTo(bloc.rectWidth * bloc.stringList.length-bloc.screenWidth);
+                  final List<Market> data = snapshot.data ?? <Market>[];
+                  final double width = MediaQuery.of(context).size.width;
+                  count = (width ~/ bloc.rectWidth).toInt();
+                  if (data.isNotEmpty && data != null) {
+                    bloc.getSubMarketChartList(currentIndex, currentIndex + count);
                   }
+
                   return Container(
                     child: Stack(
                       alignment: Alignment.center,
@@ -90,12 +101,12 @@ class MarketChartPage extends StatelessWidget {
                         ),
                         Scrollbar(
                             child: SingleChildScrollView(
-                                child: Container(
-                                  width: bloc.rectWidth * data.length,
-                                ),
-                                controller: _controller,
-                                scrollDirection: Axis.horizontal,
-                                )),
+                              child: Container(
+                                width: bloc.rectWidth * data.length,
+                              ),
+                              controller: _controller,
+                              scrollDirection: Axis.horizontal,
+                            )),
                       ],
                     ),
                   );
