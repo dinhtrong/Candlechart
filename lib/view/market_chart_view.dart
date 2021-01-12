@@ -38,7 +38,10 @@ class _MarketChartPageState extends State<MarketChartPage> {
         return;
       }
       bloc.currentIndex = currentIndex;
-      bloc.getSubMarketChartList(currentIndex, currentIndex + count);
+      if (currentIndex >= 0) {
+        bloc.getSubMarketChartList(currentIndex, currentIndex + count);
+      }
+      
     });
     return BlocProvider<MarketChartBloc>(
       //key: PageStorageKey('market'),
@@ -71,8 +74,7 @@ class _MarketChartPageState extends State<MarketChartPage> {
                     AsyncSnapshot<List<Market>> snapshot) {
                   final List<Market> data = snapshot.data ?? <Market>[];
                   final double width = MediaQuery.of(context).size.width;
-                  
-                  if (data.isNotEmpty && data != null) {
+                  if (data.isNotEmpty && data != null && currentIndex >= 0) {
                     count = (width ~/ bloc.rectWidth).toInt();
                     bloc.getSubMarketChartList(currentIndex, currentIndex + count);
                   }
