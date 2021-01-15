@@ -93,13 +93,13 @@ class _MarketChartPageState extends State<MarketChartPage> {
                               ),
                               flex: 20,
                             ),
-                            Expanded(
-                              child: Container(
-                                color: Colors.black,
-                                child: const MarketChartSingleView(type: 1),
-                              ),
-                              flex: 4,
-                            ),
+                            // Expanded(
+                            //   child: Container(
+                            //     color: Colors.black,
+                            //     child: const MarketChartSingleView(type: 1),
+                            //   ),
+                            //   flex: 4,
+                            // ),
                           ],
                         ),
                         Scrollbar(
