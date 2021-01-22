@@ -74,9 +74,13 @@ class _MarketChartPageState extends State<MarketChartPage> {
                     AsyncSnapshot<List<Market>> snapshot) {
                   final List<Market> data = snapshot.data ?? <Market>[];
                   final double width = MediaQuery.of(context).size.width;
+                  count = (width ~/ bloc.rectWidth).toInt();
                   if (data.isNotEmpty && data != null && currentIndex >= 0) {
-                    count = (width ~/ bloc.rectWidth).toInt();
-                    bloc.getSubMarketChartList(currentIndex, currentIndex + count);
+                    if ((currentIndex + count) < data.length) {
+                      bloc.getSubMarketChartList(currentIndex, currentIndex + count);
+                    } else {
+                      bloc.getSubMarketChartList(0, data.length);
+                    }
                   }
 
                   return Container(
