@@ -72,51 +72,60 @@ class _MarketChartPageState extends State<MarketChartPage> {
                 stream: bloc.outMarketChartList,
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Market>> snapshot) {
-                  final List<Market> data = snapshot.data ?? <Market>[];
-                  final double width = MediaQuery.of(context).size.width;
-                  count = (width ~/ bloc.rectWidth).toInt();
-                  if (data.isNotEmpty && data != null && currentIndex >= 0) {
-                    if ((currentIndex + count) < data.length) {
-                      bloc.getSubMarketChartList(currentIndex, currentIndex + count);
-                    } else {
-                      bloc.getSubMarketChartList(0, data.length);
-                    }
-                  }
-
-                  return Container(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      fit: StackFit.expand,
-                      children: <Widget>[
-                        Column(
+                  return  OrientationBuilder(
+                    builder: (context, orientation) {
+                      final List<Market> data = snapshot.data ?? <Market>[];
+                      final double width = MediaQuery.of(context).size.width;
+                      count = (width ~/ bloc.rectWidth).toInt();
+                      if (orientation == Orientation.landscape) {
+                        bloc.setRectWidth(14);
+                      } else {
+                        bloc.setRectWidth(7);
+                      }
+                      if (data.isNotEmpty && data != null && currentIndex >= 0) {
+                        if ((currentIndex + count) < data.length) {
+                          bloc.getSubMarketChartList(currentIndex, currentIndex + count);
+                        } else {
+                          bloc.getSubMarketChartList(0, data.length);
+                        }
+                      }
+                      return Container(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          fit: StackFit.expand,
                           children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                color: Colors.black,
-                                child: const MarketChartSingleView(type: 0),
-                              ),
-                              flex: 20,
+                            Column(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Container(
+                                    color: Colors.black,
+                                    child: const MarketChartSingleView(type: 0),
+                                  ),
+                                  flex: 20,
+                                ),
+                                // Expanded(
+                                //   child: Container(
+                                //     color: Colors.black,
+                                //     child: const MarketChartSingleView(type: 1),
+                                //   ),
+                                //   flex: 4,
+                                // ),
+                              ],
                             ),
-                            // Expanded(
-                            //   child: Container(
-                            //     color: Colors.black,
-                            //     child: const MarketChartSingleView(type: 1),
-                            //   ),
-                            //   flex: 4,
-                            // ),
+                            Scrollbar(
+                                child: SingleChildScrollView(
+                                  child: Container(
+                                    width: bloc.rectWidth * data.length,
+                                  ),
+                                  controller: _controller,
+                                  scrollDirection: Axis.horizontal,
+                                )),
                           ],
                         ),
-                        Scrollbar(
-                            child: SingleChildScrollView(
-                              child: Container(
-                                width: bloc.rectWidth * data.length,
-                              ),
-                              controller: _controller,
-                              scrollDirection: Axis.horizontal,
-                            )),
-                      ],
-                    ),
-                  );
+                      );
+                    },
+                  ); ;
                 })));
+
   }
 }
